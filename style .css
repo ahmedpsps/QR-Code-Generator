@@ -1,0 +1,332 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+.back {
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(
+    445deg,
+    #6de4ec,
+    #7AB2D3,
+    #5f92ea
+  );
+  background-size: 300% 300%;
+  animation: color 12s ease-in-out infinite;
+}
+@keyframes color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+body {
+  display: flex;
+  padding: 0px;
+  min-height: 100vh;
+  align-items: center;
+  /* background: #b3b8b9; */
+  justify-content: center;
+}
+.wrapper {
+  position: absolute;
+  height: 300px;
+  width: 400px;
+  max-width: 500px;
+  background: #05717b;
+  border-radius: 7px;
+  padding: 20px 25px 0;
+  transition: height 0.2s ease;
+  box-shadow: 0 5px 30px rgb(1, 82, 52);
+}
+.wrapper.active {
+  height: 550px;
+}
+header h1 {
+  font-family: sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+}
+header p {
+  font-family: none;
+  margin-top: 5px;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+.wrapper .form {
+  margin: 20px 0 25px;
+}
+.form :where(button) {
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.1s ease;
+}
+
+/* .form input {
+  background-color: #e9d5ff;
+  font-size: 18px;
+  padding: 0 17px;
+  border: 1px solid #e9d5ff;
+  border-radius: 10px;
+}
+.form input:focus {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+.form input::placeholder {
+  color: #343333;
+} */
+.bot {
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 17px;
+  background-color: #0ea5b3;
+  border: 2px solid #00f4f0c1;
+  transition: all 0.7s;
+  animation: color 10s forwards alternate;
+}
+button:hover {
+  transform: scale(1.1);
+  animation: 10s alternate forwards;
+}
+.qr-code {
+  opacity: 0;
+  display: flex;
+  padding: 33px 0;
+  border-radius: 20px;
+  border: #00f4f0c1 solid 2px;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  /* border-top: 3px solid #e40707;
+  border-bottom: 3px solid #e40707;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px; */
+  /* margin-top: 0px; */
+}
+.wrapper.active .qr-code {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+.qr-code img {
+  width: 170px;
+}
+
+@media (max-width: 430px) {
+  .wrapper {
+    height: 264px;
+    padding: 8px 20px;
+  }
+  .wrapper.active {
+    height: 555px;
+  }
+  header p {
+    color: #ffffff;
+  }
+  .form :where(input, button) {
+    height: 52px;
+  }
+  .qr-code img {
+    width: 160px;
+  }
+}
+.a {
+  width: 161px;
+  color: #00f4f0c1;
+  text-align: center;
+  margin-left: 91px;
+  margin-bottom: 30px;
+  border: #00ff0d solid 2px;
+  padding: 0px;
+  margin-top: 13px;
+  border-radius: 100px;
+  transition: all 1s;
+}
+a {
+  color: #625e5e;
+  text-decoration: none;
+  animation: rot 1.5s;
+}
+a:hover {
+  color: #625e5e;
+}
+
+.a:hover {
+  transform: scale(1.1);
+}
+
+.wave-group {
+  position: relative;
+}
+
+.wave-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  height: 55px;
+  border: none;
+  border-bottom: 1px solid #fcfcfc;
+  background: transparent;
+}
+
+.wave-group .input:focus {
+  outline: none;
+}
+
+.wave-group .label {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: flex;
+}
+
+.wave-group .label-char {
+  transition: 0.2s ease all;
+  transition-delay: calc(var(--index) * 0.05s);
+}
+
+.wave-group .input:focus ~ label .label-char,
+.wave-group .input:valid ~ label .label-char {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: rgb(255, 252, 252);
+}
+
+.wave-group .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.wave-group .bar:before,
+.wave-group .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #00ffea;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.wave-group .bar:before {
+  left: 50%;
+}
+
+.wave-group .bar:after {
+  right: 50%;
+}
+
+.wave-group .input:focus ~ .bar:before,
+.wave-group .input:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* insta */
+
+.Btn {
+  margin-top: 11px;
+  width: 45px;
+  margin-left: 151px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  /* overflow: hidden; */
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.svgContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  border: 1px solid #00f4f0c1;
+}
+
+.BG {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #f09433;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  z-index: -1;
+  border-radius: 9px;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+.Btn:hover .BG {
+  transform: rotate(35deg);
+  transform-origin: bottom;
+}
+
+.Btn:hover .svgContainer {
+  background-color: rgba(156, 156, 156, 0.466);
+}
